@@ -3,6 +3,7 @@ from . import __version__ as app_version
 app_name = "designfind"
 app_title = "Designfind"
 app_publisher = "Zawala"
+#app_logo_url = "/home/user/Documents/africom-project/apps/designfind/designfind/www/images/DESIGNERS LOGO.png"
 app_description = "Created to link designers with customers"
 app_email = "kelvinzawala@gmail.com"
 app_license = "MIT"
