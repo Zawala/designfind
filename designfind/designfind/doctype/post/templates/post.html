@@ -5,7 +5,7 @@
 <main class="container mb-6">
     <nav class="breadcrumb mt-4" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/store">Store</a></li>
+            <li><a href="/store">Post</a></li>
             <li class="is-active"><a href="#" aria-current="page">{{ doc.name }}</a></li>
         </ul>
     </nav>
@@ -16,10 +16,10 @@
     </div>
     <div class="column">
         <div>
-            <h1 class="title is-1">{{ doc.name }}</h1>
+            <h1 class="title is-1">{{person.username }}</h1>
         </div>
         <div class="mt-3">
-            <span class="tag is-link is-normal">{{ doc.description }}</span>
+            <span class="tag is-link is-normal">Delete</span>
         </div>
         <h2 class="subtitle is-4">by {{ post.owner }}</h2>
     </div>
@@ -31,9 +31,8 @@
         <ul>
             <li :class="activeTab == 'description' ? 'is-active': ''" @click="activeTab = 'description'"><a>Description</a></li>
 
-            <li :class="activeTab == 'toc' ? 'is-active': ''" @click="activeTab = 'toc'"><a>TOC</a></li>
+            <li :class="activeTab == 'about_designer' ? 'is-active': ''" @click="activeTab = 'about_designer'"><a>About Designer</a></li>
             
-            <li :class="activeTab == 'bio' ? 'is-active': ''" @click="activeTab = 'bio'"><a>About the author</a></li>
         </ul>
     </div>
 
@@ -41,13 +40,11 @@
         <p>{{ frappe.utils.md_to_html(doc.description) }}</p>
     </div>
 
-    <div x-show="activeTab == 'toc'">
-        <p> ""frappe.utils.md_to_html(doc.description)"" </p>
+    <div x-show="activeTab == 'about_designer'">
+        <p>1 {{frappe.utils.md_to_html(person.bio)}} </p>
     </div>
 
-    <div x-show="activeTab == 'bio'">
-        <p>{{ frappe.utils.md_to_html(post.description) }}</p>
-    </div>
+    
 </section>
 
 {% endblock %}

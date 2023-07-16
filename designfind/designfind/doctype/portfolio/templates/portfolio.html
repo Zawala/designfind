@@ -1,0 +1,73 @@
+{% extends "templates/store/base.html" %}
+
+{% block body %}
+
+<main class="container mb-6">
+    <nav class="breadcrumb mt-4" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/store">Portfolio</a></li>
+            <li class="is-active"><a href="#" aria-current="page">{{ doc.name }}</a></li>
+        </ul>
+    </nav>
+
+<div class="columns">
+    <div class="column is-one-third">
+        <img class="cover-image px-6" src="{{ doc.profile_picture }}" alt="Post Image">
+    </div>
+    <div class="column">
+        <div>
+            <h1 class="title is-1">{{doc.username }}</h1>
+        </div>
+        <div class="mt-3">
+            <span class="tag is-link is-normal">Edit</span>
+        </div>
+        <h2 class="subtitle is-4">by {{ doc.owner }}</h2>
+    </div>
+</div>
+
+
+<section class="container" x-data="{activeTab: 'bio'}">
+    <div class="tabs">
+        <ul>
+            <li :class="activeTab == 'bio' ? 'is-active': ''" @click="activeTab = 'bio'"><a>Bio</a></li>
+
+            <li :class="activeTab == 'work' ? 'is-active': ''" @click="activeTab = 'work'"><a>Creator's Work</a></li>
+            
+        </ul>
+    </div>
+
+    <div x-show="activeTab == 'bio'">
+        <p>{{ frappe.utils.md_to_html(doc.bio) }}</p>
+    </div>
+
+    <div x-show="activeTab == 'work'">
+
+        {% for post in posts %}
+        <div class="rows">
+
+            <div class="columns">
+            <div class="column">
+              {{post.title}}
+            </div>
+            <div class="column">
+                <a href={{post.route}}>View</a>
+              
+            </div>
+            <div class="column">
+                {{frappe.utils.pretty_date(post.creation)}}
+              </div>
+              <br>
+        </div>
+        
+        {% endfor %}
+
+
+       
+            
+          </div>
+    </div>
+
+    
+</section>
+
+{% endblock %}

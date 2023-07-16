@@ -9,11 +9,12 @@ class Post(WebsiteGenerator):
 		title=self.title
 		title=title.lower()
 		title=title.replace(" ", "_")
-		self.route=title
+		self.route=f'portfolio/{title}'
+		self.is_published=True
 
 	def get_context(self, context):
-		context.post = frappe.db.get_value(
-            "Post", self.name, ["name", "description", "owner", "title"], as_dict=True
-        )
-		print(context.post)
+		context.post = frappe.db.get_value("Post", self.name, ["name", "description", "owner", "title"], as_dict=True)
+		bio=frappe.db.get_value('Portfolio',{'owner': frappe.session.user},['bio', 'username'], as_dict=True)
+		context.person=bio
+		print(bio)
 		
