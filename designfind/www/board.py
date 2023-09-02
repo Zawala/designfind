@@ -20,6 +20,18 @@ def get_context(context):
 		frappe.local.flags.redirect_location = "/new-profile/new"
 		raise frappe.Redirect
 	else:
-		posts=frappe.db.get_all('Post',fields=['Title', 'Description', 'owner', 'Image', 'Route'],  as_list=True)
-		context.posts=posts
+		#posts=frappe.db.get_all('Post',fields=['Title', 'Description', 'owner', 'Image', 'Route'],  as_list=True, limit=2)
+		#context.posts=posts
+		pass
+
+@frappe.whitelist()
+def init_load(number):
+	posts=frappe.db.get_all('Post',fields=['Title', 'Description', 'owner', 'Image', 'Route'],  as_list=True, limit=9)
+	return posts
+
 		
+@frappe.whitelist()
+def get_posts(number):
+	length=int(number)+9
+	posts=frappe.db.get_all('Post',fields=['Title', 'Description', 'owner', 'Image', 'Route'],  as_list=True, start=number, page_length=length)	
+	return posts

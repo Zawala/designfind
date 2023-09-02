@@ -122,25 +122,9 @@
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="row capsule row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-        {% for post in posts %}
-        <div class="col">
-          <div class="card shadow-sm">
-              <img src={{post[3]}} alt="Thumbnail" class="bd-placeholder-img card-img-top" width="100%" height="225">
-              <div class="card-body">
-                  <p class="card-text">{{post[1]}}</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <a href={{post[4]}} target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Contact</button>
-                      </div>
-                      <small class="text-body-secondary">{{post[0]}}</small>
-                  </div>
-              </div>
-          </div>
-      </div>
-      {% endfor %}
+
      
         
       </div>
@@ -153,7 +137,7 @@
   <div class="container">
     <p class="float-end mb-1">
       <!-- <a href="#">Back to top</a> -->
-      <div class="text-end"><button type="button" class="btn btn-sm btn-outline-secondary">Load More</button></div>
+      <div class="text-end"><button type="button" id="load" class="btn btn-sm btn-outline-secondary">Load More</button></div>
     </p>
     
     <p class="mb-1">DesignFind &copy; 2023</p>
