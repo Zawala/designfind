@@ -12,9 +12,11 @@ except Exception as e:
 
 #main method executed on page load
 def get_context(context):
+	if frappe.session.user=='Guest':
+		frappe.throw(_("You need to be logged in to access this page"), frappe.PermissionError)
+	
 	#order_by='price asc',
 	
-	print(frappe.db.exists({"doctype": "Portfolio", "owner": frappe.session.user}))
 	if not frappe.db.exists({"doctype": "Portfolio", "owner": frappe.session.user}):
 		frappe.msgprint('create profile')
 		frappe.local.flags.redirect_location = "/new-profile/new"

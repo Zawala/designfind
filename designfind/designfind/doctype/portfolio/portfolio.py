@@ -23,6 +23,9 @@ class Portfolio(WebsiteGenerator):
 
 
 	def get_context(self, context):
+		if frappe.session.user=='Guest':
+			frappe.throw(_("You need to be logged in to access this page"), frappe.PermissionError)
+	
 		person=frappe.db.get_value('Portfolio',{'owner': frappe.session.user},['bio', 'username'], as_dict=True)
 		posts=frappe.db.get_list('Post', filters={'owner':  frappe.session.user},fields=['title', 'route', 'creation'],)
 		context.posts=posts

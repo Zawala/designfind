@@ -1,5 +1,6 @@
 import frappe
 
 def get_context(context):
-	# do your magic here
-	pass
+	if frappe.session.user=='Guest':
+		frappe.throw(("You need to be logged in to access this page"), frappe.PermissionError)
+	

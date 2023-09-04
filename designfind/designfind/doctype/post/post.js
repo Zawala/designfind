@@ -2,7 +2,17 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Post', {
-	// refresh: function(frm) {
-
-	// }
+	delete: function(frm) {
+		let text = element.textContent; 
+		console.log('text');
+	 }
+	
 });
+$( "#delete" ).click(function (event) {
+		event.preventDefault();
+		let text = element.textContent; 
+		console.log('text');
+
+
+
+	});
