@@ -30,7 +30,7 @@ frappe.ready(function() {
                         <a href='${post[4]}' target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
                           <button type="button" class="btn btn-sm btn-outline-secondary">Contact</button>
                       </div>
-                      <small class="text-body-secondary">${post[2]}</small>
+                      <span><small class="text-body-secondary">${post[0]}</small></span>
                   </div>
               </div>
           </div>
