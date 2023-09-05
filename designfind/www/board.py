@@ -29,6 +29,7 @@ def get_context(context):
 @frappe.whitelist()
 def init_load(number):
 	posts=frappe.db.get_all('Post',fields=['Title', 'Description', 'owner', 'Image', 'Route'],  as_list=True, limit=9)
+	print(posts)
 	return posts
 
 		
@@ -36,4 +37,5 @@ def init_load(number):
 def get_posts(number):
 	length=int(number)+9
 	posts=frappe.db.get_all('Post',fields=['Title', 'Description', 'owner', 'Image', 'Route'],  as_list=True, start=number, page_length=length)	
+	print(posts)
 	return posts

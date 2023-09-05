@@ -10,7 +10,6 @@ frappe.ready(function() {
                     number:allChildren
         },
         callback: function(r){
-        console.log(r.message);
         posts = r.message;
         const row = document.querySelector('.capsule'); 
 
@@ -31,7 +30,7 @@ frappe.ready(function() {
                         <a href='${post[4]}' target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
                           <button type="button" class="btn btn-sm btn-outline-secondary">Contact</button>
                       </div>
-                      <small class="text-body-secondary">${post[0]}</small>
+                      <small class="text-body-secondary">${post[2]}</small>
                   </div>
               </div>
           </div>
@@ -58,12 +57,10 @@ $( "#load" ).click(function (event) {
                     number:allChildren
         },
         callback: function(r){
-        console.log(r.message);
         posts = r.message;
         const row = document.querySelector('.capsule'); 
 
         posts.forEach(post => {
-
             const col = document.createElement('div');
             col.className = 'col';
           
