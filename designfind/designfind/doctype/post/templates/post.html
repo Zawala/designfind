@@ -16,7 +16,7 @@
     </div>
     <div class="column">
         <div>
-            <h1 class="title is-1">{{person.username }}</h1>
+           <a href={{person.route}}><h1 class="title is-1">{{person.username }}</h1></a> 
         </div>
         <div class="mt-3">
             {%- if is_owner -%}
@@ -24,7 +24,7 @@
 
 			{%- endif -%}
             {%- if not is_owner -%}
-            <a href={{contact_route}}><button id="contact" class="button is-info">Contact</button></a>
+            <a href="{{contact_route}}"><button id="contact" class="button is-info">Contact</button></a>
             
 
 			{%- endif -%}

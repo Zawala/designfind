@@ -18,7 +18,7 @@ class Post(WebsiteGenerator):
 		context.show_sidebar=True
 		contact=frappe.db.get_value("Inbox",{'owner': frappe.session.user}, ["route"], as_dict=True)
 		context.post = frappe.db.get_value("Post", self.name, ["name", "description", "owner", "title"], as_dict=True)
-		bio=frappe.db.get_value('Portfolio',{'owner': frappe.session.user},['bio', 'username'], as_dict=True)
+		bio=frappe.db.get_value('Portfolio',{'owner': frappe.session.user},['bio', 'route','username'], as_dict=True)
 		if context.post['owner']== frappe.session.user:
 			context.is_owner=True
 
