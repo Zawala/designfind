@@ -1,0 +1,69 @@
+.card-section{
+	box-shadow: 5px 3px 5px rgb(143, 141, 141);
+	border-radius: 5px;
+	margin-top: 50px;
+}
+.error-page{
+	margin-bottom: 50px;;
+}
+.section-head{
+	margin-top: 10px;
+}
+.img-404{
+	width: 20%;
+	height: auto;
+}
+#policy{
+	margin:4px, 4px;
+	padding:10px;
+	height: 410px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	text-align:justify;
+}
+
+.checkbox{
+	margin-top: 5%;
+}
+.page-card {
+    padding-top: 20px;
+    padding-bottom: 45px;
+    background-color: #fff;
+    box-shadow: var(--shadow-base);
+  }
+
+  .for-recharge{
+    padding-top: 10px;
+  }
+
+.btn{
+	margin-left: 5px;
+	margin-bottom: 10px;
+}
+.form-group  {
+	position: relative;
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.btn-recharge{
+	width: auto;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+.url_return{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+@media (min-width: 576px) {
+	.d-sm-none{
+		display: block !important;
+		}
+	}
+@media (min-width: 992px) {
+.d-sm-none{
+	display: none !important;
+	}
+}
+
