@@ -16,11 +16,13 @@ class Post(WebsiteGenerator):
 		if frappe.session.user=='Guest':
 			frappe.throw(("You need to be logged in to access this page"), frappe.PermissionError)
 		context.show_sidebar=True
-
+		contact=frappe.db.get_value("Inbox", self.name, ["route"], as_dict=True)
 		context.post = frappe.db.get_value("Post", self.name, ["name", "description", "owner", "title"], as_dict=True)
 		bio=frappe.db.get_value('Portfolio',{'owner': frappe.session.user},['bio', 'username'], as_dict=True)
 		if context.post['owner']== frappe.session.user:
 			context.is_owner=True
+
+		context.contact_route=contact['route']
 		context.person=bio
 		context.csrf_token = frappe.local.session.data.csrf_token
 
