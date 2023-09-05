@@ -15,7 +15,7 @@ class Portfolio(WebsiteGenerator):
 				})
 			user = frappe.get_doc('User', frappe.session.user)
 			user.user_image=self.profile_picture
-			user.insert(
+			user.save(
 			ignore_permissions=True, # ignore write permissions during insert
 		)
 			self.create_inbox(self.username)
