@@ -79,7 +79,7 @@ $( "#load" ).click(function (event) {
                         <a href='${post[4]}' target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
                           <a href='${post[4]}' target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">Contact</button></a>
                       </div>
-                      <small class="text-body-secondary">${post[0]}</small>
+                      <small class="text-body-secondary">${post[2]}</small>
                   </div>
               </div>
           </div>
