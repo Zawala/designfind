@@ -7,7 +7,7 @@ from frappe.website.website_generator import WebsiteGenerator
 class Portfolio(WebsiteGenerator):
 	def before_save(self):
 		if not frappe.db.exists({"doctype": "Portfolio", "username": self.username}):
-			self.route=f'/portfolio/{self.username}'
+			self.route=f'portfolio/{self.username}'
 			self.is_published=True
 			user = frappe.get_doc({
 				"doctype":"User",
@@ -24,7 +24,7 @@ class Portfolio(WebsiteGenerator):
 		doc = frappe.new_doc('Inbox')
 		doc.is_published=True
 		doc.user=self.username
-		doc.route=f'/inbox/{username}'
+		doc.route=f'inbox/{username}'
 		doc.insert(
 			ignore_permissions=True, # ignore write permissions during insert
 		)
